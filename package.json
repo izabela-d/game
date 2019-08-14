@@ -1,5 +1,5 @@
 {
-  "name": "individual_project",
+  "name": "game",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,15 +21,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/izabela-d/individual_project.git"
+    "url": "git+https://github.com/izabela-d/game.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/izabela-d/individual_project/issues"
+    "url": "https://github.com/izabela-d/game/issues"
   },
-  "homepage": "https://github.com/izabela-d/individual_project#readme",
+  "homepage": "https://github.com/izabela-d/game#readme",
   "devDependencies": {
     "autoprefixer-cli": "^1.0.0",
     "browser-sync": "^2.26.7",
