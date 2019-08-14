@@ -1,0 +1,13 @@
+body { padding: 10px; text-align: center; background-color: #E8EAF6; }
+
+.header { margin-top: 15px; font-weight: bold; }
+
+.new-game { padding: 10px; margin: 10px; }
+
+.text { padding-bottom: 10px; margin: 10px; font-size: 15px; font-weight: bold; }
+
+.new-game, .buttons button { padding: 20px 80px; max-width: 100%; font-size: 16px; font-weight: 600; white-space: nowrap; vertical-align: middle; color: #fff; background-color: #00ACC1; border: 2px solid #00ACC1; border-radius: 4px; transition: color .3s, background-color .3s; cursor: pointer; text-decoration: none; -ms-touch-action: manipulation; touch-action: manipulation; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+.new-game:hover, .new-game:active, .buttons button:hover, .buttons button:active { color: #02ac46; background-color: #fff; }
+
+.score { margin: 10px; }
