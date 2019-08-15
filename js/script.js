@@ -117,7 +117,7 @@ var playerMove = function(playerMove) {
     displayOutput (result + '<br>' + ' Twój ruch: ' + playerMove + '<br>' + ' Ruch komputera: ' + computerMove + '<br>')
   }
   
-  displayResult(params.playerResult, params.computerResult);  //a tu coś zmienić?
+  displayResult(params.playerResult, params.computerResult); 
    
 }
 
@@ -151,7 +151,7 @@ for (var i=0; i < allBtn.length; i++) {
 
 
 //modal  
-var showModal = function(event){
+var showModal = function(){
   event.preventDefault();
   document.querySelector('#modal-overlay').classList.add('show');
 };
@@ -166,7 +166,7 @@ for(var i = 0; i < modalLinks.length; i++){
 
 // Dodajemy też funkcję zamykającą modal, oraz przywiązujemy ją do kliknięć na elemencie z klasą "close". 
 
-var hideModal = function(event){
+var hideModal = function(){
   event.preventDefault();
   document.querySelector('#modal-overlay').classList.remove('show');
 };
@@ -181,14 +181,6 @@ for(var i = 0; i < closeButtons.length; i++){
 
 document.querySelector('#modal-overlay').addEventListener('click', hideModal);
 
-// Musimy jednak pamiętać, aby zablokować propagację kliknięć z samego modala - inaczej każde kliknięcie wewnątrz modala również zamykałoby go. 
 
-var modals = document.querySelectorAll('.modal');
-
-for(var i = 0; i < modals.length; i++){
-  modals[i].addEventListener('click', function(event){
-    event.stopPropagation();
-  });
-}
 
 
