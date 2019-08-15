@@ -13,27 +13,31 @@ var resultDiv = document.getElementById('result');
 var newGameBtn = document.getElementById('newGameButton');
 var numberRounds = document.getElementById('numberOfRounds'); 
 
+
 //Zmienne-wyniki graczy i liczba rund
-var playerResult = 0;
-var computerResult = 0;
-var rounds = 0;
+var params = {
+  playerResult: 0,
+  computerResult: 0,
+  rounds: 0
+};
+
 
 //zmiennna blokująca grę(przyciski)
 var gameEnd = false;
 
 //fukcjna rozpoczynająca nową grę
 var newGame = function() {
-  playerResult = 0;  //ustawianie początkowyh wartości przy klikaniu nowa gra
-  computerResult = 0;
-  rounds = 0;
+  params.playerResult = 0;  //ustawianie początkowyh wartości przy klikaniu nowa gra
+  params.computerResult = 0;
+  params.rounds = 0;
   gameEnd = false;
-  rounds = window.prompt('Podaj liczbę rund');
-  rounds = parseInt(rounds);
+  params.rounds = window.prompt('Podaj liczbę rund');
+  params.rounds = parseInt(params.rounds);
   
-  if (!isNaN(rounds)) {
-    numberRounds.innerHTML = 'Wybrana ilość rund: ' + rounds;
+  if (!isNaN(params.rounds)) {
+    numberRounds.innerHTML = 'Wybrana ilość rund: ' + params.rounds;
   }
-  else if (isNaN(rounds)) {
+  else if (isNaN(params.rounds)) {
       numberRounds.innerHTML = 'Wpisano niepoprawną liczbę';
   }
   
@@ -61,9 +65,9 @@ var displayOutput = function(output) {
 }
 
 //Funkcja wyświetlająca wyniki graczy (po każdej rundzie)
-var displayResult = function(playerResult, computerResult) {
-  resultDiv.innerHTML = 'Wynik gracza: ' + playerResult + '<br>';
-  resultDiv.innerHTML += 'Wynik komputera: ' + computerResult;
+var displayResult = function(params[playerResult], params[computerResult]) { //jak to zapisać?
+  resultDiv.innerHTML = 'Wynik gracza: ' + params.playerResult + '<br>';
+  resultDiv.innerHTML += 'Wynik komputera: ' + params.computerResult;
   //Jeżeli wygrano/przegrano nie wyświetlaj wyników
   if (gameEnd) {
     resultDiv.innerHTML = '';
@@ -89,29 +93,31 @@ var playerMove = function(playerMove) {
      ||  (playerMove === stoneMove && computerMove === scissorsMove)
      ||  (playerMove === scissorsMove && computerMove === paperMove)) {
     result = 'Wygrales!' + '<br>';
-    playerResult++;
+    params.playerResult++;
   } 
   
   else if (playerMove === computerMove) {
     result = 'Remis!' + '<br>';
   }  
   else {
-    computerResult++;
+    params.computerResult++;
   } 
         
-  if (playerResult > 0 && playerResult >= rounds) {
+  if (params.playerResult > 0 && params.playerResult >= params.rounds) {
     displayOutput ('Wygrałeś całą grę !!!')
     gameEnd = true;
+    showModal();
   }
-  else if (computerResult > 0 && computerResult >= rounds){
+  else if (params.computerResult > 0 && params.computerResult >= params.rounds){
     displayOutput ('Przegrałeś całą grę :( ')  
     gameEnd = true;
+    showModal();
   }
   else {
     displayOutput (result + '<br>' + ' Twój ruch: ' + playerMove + '<br>' + ' Ruch komputera: ' + computerMove + '<br>')
   }
   
-  displayResult(playerResult, computerResult);  
+  displayResult(params.playerResult, params.computerResult);  //a tu coś zmienić?
    
 }
 
@@ -142,4 +148,47 @@ for (var i=0; i > allBtn.length; i++) {
     playerMove(dataMove);
   })
 };
+
+
+//modal  
+var showModal = function(event){
+  event.preventDefault();
+  document.querySelector('#modal-overlay').classList.add('show');
+};
+
+// Mimo, że obecnie mamy tylko jeden link, stosujemy kod dla wielu linków. W ten sposób nie będzie trzeba go zmieniać, kiedy zechcemy mieć więcej linków lub guzików otwierających modale
+
+var modalLinks = document.querySelectorAll('.show-modal');
+
+for(var i = 0; i < modalLinks.length; i++){
+  modalLinks[i].addEventListener('click', showModal);
+}
+
+// Dodajemy też funkcję zamykającą modal, oraz przywiązujemy ją do kliknięć na elemencie z klasą "close". 
+
+var hideModal = function(event){
+  event.preventDefault();
+  document.querySelector('#modal-overlay').classList.remove('show');
+};
+
+var closeButtons = document.querySelectorAll('.modal .close');
+
+for(var i = 0; i < closeButtons.length; i++){
+  closeButtons[i].addEventListener('click', hideModal);
+}
+
+// Dobrą praktyką jest również umożliwianie zamykania modala poprzez kliknięcie w overlay. 
+
+document.querySelector('#modal-overlay').addEventListener('click', hideModal);
+
+// Musimy jednak pamiętać, aby zablokować propagację kliknięć z samego modala - inaczej każde kliknięcie wewnątrz modala również zamykałoby go. 
+
+var modals = document.querySelectorAll('.modal');
+
+for(var i = 0; i < modals.length; i++){
+  modals[i].addEventListener('click', function(event){
+    event.stopPropagation();
+  });
+}
+
 
