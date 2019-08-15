@@ -158,11 +158,11 @@ var showModal = function(event){
 
 // Mimo, że obecnie mamy tylko jeden link, stosujemy kod dla wielu linków. W ten sposób nie będzie trzeba go zmieniać, kiedy zechcemy mieć więcej linków lub guzików otwierających modale
 
-var modalLinks = document.querySelectorAll('.show-modal');
+/*var modalLinks = document.querySelectorAll('.show-modal');
 
 for(var i = 0; i < modalLinks.length; i++){
   modalLinks[i].addEventListener('click', showModal);
-}
+}*/
 
 // Dodajemy też funkcję zamykającą modal, oraz przywiązujemy ją do kliknięć na elemencie z klasą "close". 
 
