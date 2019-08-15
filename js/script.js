@@ -65,7 +65,7 @@ var displayOutput = function(output) {
 }
 
 //Funkcja wyświetlająca wyniki graczy (po każdej rundzie)
-var displayResult = function(params[playerResult], params[computerResult]) { //jak to zapisać?
+var displayResult = function(playerResult, computerResult) { 
   resultDiv.innerHTML = 'Wynik gracza: ' + params.playerResult + '<br>';
   resultDiv.innerHTML += 'Wynik komputera: ' + params.computerResult;
   //Jeżeli wygrano/przegrano nie wyświetlaj wyników
@@ -142,8 +142,8 @@ scissorsBtn.addEventListener('click', function () {
 //pętla dla playerMove-etap2 zadania 13.3
 var allBtn = document.querySelectorAll('.player-move');
 
-for (var i=0; i > allBtn.length; i++) {
-  var dataMove = allBtn.getAttribute('data-move');
+for (var i=0; i < allBtn.length; i++) {
+  var dataMove = allBtn[i].getAttribute('data-move');
   allBtn[i].addEventListener('click', function(){
     playerMove(dataMove);
   })
