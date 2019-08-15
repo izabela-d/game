@@ -121,9 +121,9 @@ newGameBtn.addEventListener('click', function () {
 });
 
 // paperMove, stoneMove, scissorsMove
-paperBtn.addEventListener('click', function () {
+/*paperBtn.addEventListener('click', function () {
   playerMove(paperMove) // paperMove = 1
-});
+}); 
 
 stoneBtn.addEventListener('click', function () {
   playerMove(stoneMove)  // stoneMove = 2
@@ -131,4 +131,15 @@ stoneBtn.addEventListener('click', function () {
 
 scissorsBtn.addEventListener('click', function () {
   playerMove(scissorsMove)  // scissorsMove = 3
-});
+});*/
+
+//pętla dla playerMove-etap2 zadania 13.3
+var allBtn = document.querySelectorAll('.player-move');
+
+for (var i=0; i > allBtn.length; i++) {
+  var dataMove = allBtn.getAttribute('data-move');
+  allBtn[i].addEventListener('click', function(){
+    playerMove(dataMove);
+  })
+};
+
