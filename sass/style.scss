@@ -65,10 +65,11 @@ body {
 }
 
 .modal {
+  padding: 20px;
   background: #fff;
-  width: 200px;
+  width: 600px;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   
@@ -92,5 +93,9 @@ body {
   .content {
     min-height: 30px;
     padding: 5px 30px;
+    
+    .progress {
+      display: inline-block;
+    }
   }
 }

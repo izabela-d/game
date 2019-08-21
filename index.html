@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Piszemy własną grę!</title>
-  <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <title>Piszemy własną grę!</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
+
 <div>
-  <h2 class="header">Gra papier, kamień, nożyce</h2>
-  <button id="newGameButton" class="new-game">Nowa gra</button>
-  <div id="numberOfRounds" class="text"></div>
+    <h2 class="header">Gra papier, kamień, nożyce</h2>
+    <button id="newGameButton" class="new-game">Nowa gra</button>
+    <div id="numberOfRounds" class="text"></div>
 </div>
 
 <div class='buttons'>
-  <button id="paperButton" data-move="papier" class="player-move">papier</button>
-  <button id="stoneButton" data-move="kamien" class="player-move">kamień</button>
-  <button id="scissorsButton" data-move="nozyce" class="player-move">nożyce</button>
+    <button id="paperButton" data-move="papier" class="player-move">papier</button>
+    <button id="stoneButton" data-move="kamien" class="player-move">kamień</button>
+    <button id="scissorsButton" data-move="nozyce" class="player-move">nożyce</button>
 </div>
 
 <div id="output" class="text score">
@@ -26,17 +26,31 @@
 </div>
 
 <div class="overlay" id="modal-overlay">
-  <div class="modal" id="modal-one">
-    <a href="#" class="close">x</a>
-    <header>Koniec gry</header>
-    <div class="content">
-      <p>Dolor sit amet!</p>
+    <div class="modal" id="modal-one">
+        <a href="#" class="close">x</a>
+        <header>Koniec gry</header>
+        <div class="content">
+            <div class="progress">
+                <table id="modal-table">
+                    <thead>
+                    <tr>
+                        <th>Numer rundy</th>
+                        <th>Ruch gracza</th>
+                        <th>Ruch komputera</th>
+                        <th>Wynik rundy</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-<!-- partial -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  <script src="js/script.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
